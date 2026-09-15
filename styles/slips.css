@@ -1,0 +1,103 @@
+.slip-row {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: stretch;
+  width: var(--scene-track-width);
+  min-width: var(--scene-track-width);
+  height: 100%;
+  padding-right: 0;
+}
+
+.slip-section {
+  position: relative;
+  display: flex;
+  flex: 0 0 var(--section-width);
+  width: var(--section-width);
+  min-width: 0;
+  height: 100%;
+  padding-inline: calc(var(--slip-gap) / 2);
+  gap: var(--slip-gap);
+  overflow: visible;
+  background: transparent;
+}
+
+.slip-section[data-section="0"] {
+  padding-right: 0;
+}
+
+.slip-section[data-section="17"] {
+  padding-left: 0;
+}
+
+.projection-layer {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  mix-blend-mode: normal;
+  transform: translate3d(var(--projection-canvas-left, 0px), 0, 0);
+  will-change: transform;
+}
+
+.slip-item {
+  position: relative;
+  display: block;
+  flex: 1 1 0;
+  min-width: 0;
+  height: 100%;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.slip-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  clip-path: inset(0 0 0 100%);
+  -webkit-clip-path: inset(0 0 0 100%);
+  opacity: 0;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.slip-rope {
+  position: absolute;
+  z-index: 8;
+  left: 0;
+  width: 100% !important;
+  height: var(--slip-rope-height) !important;
+  pointer-events: none;
+  object-fit: fill;
+  --rope-shadow-y: calc(var(--design-unit) * 2.2);
+  --rope-contact-shadow-y: calc(var(--design-unit) * 0.8);
+  /* Scale the rope shadow with the rope itself. The old fixed 1px shadow
+     became visually imperceptible after the landscape rope was scaled down
+     for phones. The second layer anchors the rope to the slip surface while
+     the wider layer keeps the contour soft instead of forming a hard edge. */
+  filter:
+    drop-shadow(
+      0 var(--rope-shadow-y)
+        calc(var(--design-unit) * 3.8) rgba(5, 2, 1, 0.5)
+    )
+    drop-shadow(
+      0 var(--rope-contact-shadow-y)
+        calc(var(--design-unit) * 1.2) rgba(5, 2, 1, 0.68)
+    );
+}
+
+.slip-rope--top {
+  top: var(--rope-offset);
+}
+
+.slip-rope--bottom {
+  --rope-shadow-y: calc(var(--design-unit) * -2.2);
+  --rope-contact-shadow-y: calc(var(--design-unit) * -0.8);
+  bottom: var(--rope-offset);
+}

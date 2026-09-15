@@ -1,0 +1,107 @@
+.orientation-lock {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  place-items: center;
+  padding: 28px;
+  color: #ead09a;
+  text-align: center;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(132, 75, 35, 0.34), transparent 40%),
+    linear-gradient(180deg, #1b0d09 0%, #0d0705 100%);
+}
+
+.orientation-lock__inner {
+  display: grid;
+  justify-items: center;
+  width: min(84vw, 340px);
+  gap: 10px;
+}
+
+.orientation-lock__device {
+  position: relative;
+  display: block;
+  width: 54px;
+  height: 84px;
+  margin-bottom: 10px;
+  border: 1px solid rgba(234, 208, 154, 0.78);
+  border-radius: 8px;
+  box-shadow:
+    0 0 0 5px rgba(234, 208, 154, 0.08),
+    0 0 24px rgba(215, 160, 77, 0.18);
+  transform: rotate(90deg);
+}
+
+.orientation-lock__device::before {
+  position: absolute;
+  top: 7px;
+  left: 50%;
+  width: 15px;
+  height: 2px;
+  content: "";
+  border-radius: 999px;
+  background: rgba(234, 208, 154, 0.74);
+  transform: translateX(-50%);
+}
+
+.orientation-lock__device::after {
+  position: absolute;
+  bottom: 7px;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  content: "";
+  border: 1px solid rgba(234, 208, 154, 0.74);
+  border-radius: 50%;
+  transform: translateX(-50%);
+}
+
+.orientation-lock__title,
+.orientation-lock__subtitle,
+.orientation-lock__hint {
+  margin: 0;
+}
+
+.orientation-lock__title {
+  font-size: clamp(22px, 7vw, 30px);
+  letter-spacing: 0.12em;
+}
+
+.orientation-lock__subtitle {
+  color: rgba(234, 208, 154, 0.78);
+  font-size: 14px;
+  letter-spacing: 0.05em;
+}
+
+.orientation-lock__hint {
+  margin-top: 8px;
+  color: rgba(234, 208, 154, 0.62);
+  font-size: 14px;
+}
+
+@media (orientation: portrait) and (max-width: 767px) and (hover: none) {
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .orientation-lock {
+    display: grid;
+  }
+
+  .booklet-stage,
+  .roll-progress-control,
+  .asset-loader {
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orientation-lock__device {
+    transform: none;
+  }
+}

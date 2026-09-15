@@ -1,0 +1,154 @@
+.roll-end-3d {
+  --roll-radius: 48px;
+  --roll-diameter: 96px;
+  --roll-face-width: 19px;
+  --roll-face-left: -9.5px;
+  --roll-center-x: -28px;
+  --roll-cap-offset: -48px;
+  --roll-core-left: -36px;
+  --roll-core-width: 72px;
+  --roll-shadow-left: -62px;
+  --roll-shadow-width: 124px;
+  --roll-shadow-opacity: 0.3;
+  --roll-phase: 0rad;
+  --roll-texture-size: 1600%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 14;
+  width: 0;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate3d(var(--roll-center-x), 0, 18px);
+  transform-origin: 0 50%;
+  transform-style: preserve-3d;
+  transition: opacity 180ms linear;
+}
+
+.roll-end-3d.is-ready {
+  opacity: 1;
+}
+
+.roll-cylinder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.roll-cylinder-core {
+  position: absolute;
+  top: 1%;
+  bottom: 1%;
+  left: var(--roll-core-left);
+  width: var(--roll-core-width);
+  border-radius: var(--roll-radius);
+  background: linear-gradient(
+    90deg,
+    rgba(24, 8, 4, 0.94),
+    rgba(92, 43, 21, 0.98) 30%,
+    rgba(111, 56, 28, 0.96) 52%,
+    rgba(38, 14, 7, 0.98)
+  );
+  box-shadow: inset 0 0 18px rgba(10, 3, 2, 0.88);
+  transform: translateZ(-1px);
+}
+
+.roll-cylinder-face {
+  position: absolute;
+  top: 0;
+  left: var(--roll-face-left);
+  width: var(--roll-face-width);
+  height: 100%;
+  background-image: url("../Assets/Texture/optimized/roll_side_albedo.webp");
+  background-position: var(--texture-x) center;
+  background-repeat: no-repeat;
+  background-size: var(--roll-texture-size) 100%;
+  box-shadow:
+    inset 1px 0 rgba(255, 213, 137, 0.11),
+    inset -1px 0 rgba(27, 9, 4, 0.24);
+  transform: rotateY(calc(var(--face-angle) + var(--roll-phase)))
+    translateZ(var(--roll-radius));
+  transform-origin: 50% 50%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.roll-cylinder-face::after {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  content: "";
+  background: rgba(8, 3, 1, var(--face-shade));
+}
+
+.roll-face-rope {
+  position: absolute;
+  left: 0;
+  z-index: 4;
+  width: 100%;
+  height: 2.2%;
+  min-height: 9px;
+  max-height: 21px;
+  background-image: url("../Assets/Texture/optimized/Rope.webp");
+  background-position: var(--texture-x) center;
+  background-repeat: no-repeat;
+  background-size: var(--roll-texture-size) 100%;
+}
+
+.roll-face-rope--top {
+  top: var(--rope-offset);
+}
+
+.roll-face-rope--bottom {
+  bottom: var(--rope-offset);
+}
+
+.roll-cap {
+  position: absolute;
+  left: var(--roll-cap-offset);
+  width: var(--roll-diameter);
+  height: var(--roll-diameter);
+  pointer-events: none;
+  background: url("../Assets/Texture/optimized/roll_cap.webp") center / contain no-repeat;
+  transform-origin: 50% 50%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.roll-cap--top {
+  top: var(--roll-cap-offset);
+  filter: drop-shadow(0 2px 2px rgba(8, 3, 1, 0.24));
+  transform: rotateY(var(--roll-phase)) rotateX(90deg) translateZ(1px);
+}
+
+.roll-cap--bottom {
+  top: calc(100% + var(--roll-cap-offset));
+  filter: brightness(0.56) saturate(0.92);
+  transform: rotateY(var(--roll-phase)) rotateX(-90deg) translateZ(1px);
+}
+
+.roll-end-ground-shadow {
+  position: absolute;
+  top: 3%;
+  bottom: -4%;
+  left: var(--roll-shadow-left);
+  z-index: -1;
+  width: var(--roll-shadow-width);
+  border-radius: 48%;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at 52% 52%,
+    rgba(4, 1, 1, 0.38) 0%,
+    rgba(4, 1, 1, 0.16) 54%,
+    transparent 82%
+  );
+  filter: blur(11px);
+  opacity: var(--roll-shadow-opacity);
+  transform: translate3d(0, 12px, -40px) scaleY(0.58);
+  transform-origin: 50% 100%;
+}

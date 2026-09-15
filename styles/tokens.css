@@ -1,0 +1,59 @@
+@font-face {
+  font-family: "JuanyunCalligraphy";
+  src: url("../font/juanyun-calligraphy.woff2?v=20260908-4") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JuanyunCalligraphy";
+  src: url("../font/juanyun-calligraphy.woff2?v=20260908-4") format("woff2");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JuanyunCalligraphy";
+  src: url("../font/juanyun-calligraphy.woff2?v=20260908-4") format("woff2");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: dark;
+  --lacquer: #120a08;
+  --wood-dark: #30170f;
+  --gold: #d9ad61;
+  --safe-zone-y: 5svh;
+  --swipe-gutter: clamp(48px, 7vw, 112px);
+  --table-overscan: clamp(96px, 12vw, 240px);
+  --section-count: 19;
+  --slips-per-section: 14;
+  --slip-gap: 2px;
+  --title-right-inset: 8.32svh;
+  /* 卷首标注以 960×540 为基准，跟随当前单节的实际 16:9 尺寸缩放。 */
+  --design-unit: calc(var(--section-width) * 0.0010416667);
+  --slip-height: calc(
+    100svh - var(--safe-zone-y) - var(--safe-zone-y)
+  );
+  --section-width: 160svh;
+  --scene-track-width: calc(var(--section-width) * var(--section-count));
+  --scene-canvas-width: calc(
+    var(--scene-track-width) + var(--swipe-gutter) + var(--swipe-gutter)
+  );
+  /* 桌面图使用原始像素，不再通过统一色层改变背景色。 */
+  --desk-brightness-tint: transparent;
+  --camera-angle: 20deg;
+  --rope-offset: 10%;
+  /* Keep rope thickness in the same 960-unit scale as the slip artwork.
+     A fixed 21px becomes oversized on a phone in landscape orientation. */
+  --slip-rope-height: calc(var(--design-unit) * 21);
+  --font-scale: 1.08;
+  --secondary-font-scale: 1.3;
+  --font-brand: "JuanyunCalligraphy", "Noto Serif SC", "Songti SC", "STSong", Georgia, serif;
+  font-family: var(--font-brand);
+  background: var(--lacquer);
+}

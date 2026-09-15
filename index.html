@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="卷云传完整展开简册构成 demo。" />
+    <meta name="theme-color" content="#120a08" />
+    <title>卷云传 · 简册</title>
+    <link rel="stylesheet" href="./styles.css?v=20260915-6" />
+  </head>
+  <body class="is-loading">
+    <div
+      class="orientation-lock"
+      id="orientationLock"
+      role="status"
+      aria-live="polite"
+      aria-label="请将手机横向使用"
+    >
+      <div class="orientation-lock__inner">
+        <span class="orientation-lock__device" aria-hidden="true"></span>
+        <p class="orientation-lock__title">请横屏浏览</p>
+        <p class="orientation-lock__subtitle">Rotate your phone to landscape</p>
+        <p class="orientation-lock__hint">横向后即可展开卷云传</p>
+      </div>
+    </div>
+
+    <div class="asset-loader" id="assetLoader" role="status" aria-live="polite">
+      <div class="asset-loader__inner">
+        <span class="asset-loader__title">卷云传</span>
+        <span class="asset-loader__label" id="assetLoaderLabel">正在载入首屏素材</span>
+        <div
+          class="asset-loader__track"
+          id="assetLoaderTrack"
+          role="progressbar"
+          aria-label="素材载入进度"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-valuenow="0"
+        >
+          <span class="asset-loader__fill" id="assetLoaderFill"></span>
+        </div>
+        <span class="asset-loader__percent" id="assetLoaderPercent">0%</span>
+      </div>
+    </div>
+
+    <main
+      class="booklet-stage"
+      id="bookletStage"
+      aria-label="卷云传卷首与完整展开的木简简册"
+    >
+      <button
+        class="language-toggle"
+        id="languageToggle"
+        type="button"
+        aria-label="切换英文标题"
+        aria-pressed="false"
+      >
+        EN
+      </button>
+      <div class="booklet-viewport" id="bookletViewport">
+          <div class="booklet-canvas">
+            <div class="scene-background-track" id="sceneBackgroundTrack" aria-hidden="true">
+            </div>
+          <div class="booklet-object" id="bookletObject">
+            <div class="booklet-shadow" aria-hidden="true"></div>
+            <div class="booklet-surface">
+              <div class="slip-row" id="slipRow">
+                <canvas
+                  class="projection-layer"
+                  id="projectionLayer"
+                  aria-hidden="true"
+                ></canvas>
+                <div
+                  class="booklet-origin-overlay"
+                  id="bookletOriginOverlay"
+                  aria-hidden="true"
+                >
+                  <img
+                    class="booklet-origin-overlay__ink booklet-origin-overlay__vintage"
+                    src="./Assets/Texture/overlays/core-copy-ink-layer-alpha-summed-top-v1.webp"
+                    alt=""
+                    draggable="false"
+                  />
+                  <div class="booklet-origin-overlay__viewport">
+                    <div class="booklet-origin-overlay__scroll">
+                      <section
+                        class="booklet-origin-overlay__copy"
+                        data-language="zh"
+                        aria-label="卷首内容"
+                      >
+                        <div class="booklet-origin-overlay__language booklet-origin-overlay__language--zh">
+                          <p class="booklet-origin-overlay__eyebrow">
+                            卷首 <span>/ ORIGIN</span>
+                          </p>
+                          <p class="booklet-origin-overlay__fact">
+                            《卷云传》从甘肃武威出土的东汉铜奔马出发，<br />
+                            将一件两千年前的文物，重新写成一段关于<br />
+                            勇气、忠诚与文明相遇的故事。
+                          </p>
+                          <p class="booklet-origin-overlay__question">
+                            历史留下了一种姿态，<br />
+                            我们想知道，<br />
+                            <strong>是什么让它完成了这一跃？</strong>
+                          </p>
+                        </div>
+                        <div class="booklet-origin-overlay__language booklet-origin-overlay__language--en">
+                          <p class="booklet-origin-overlay__eyebrow">
+                            VOLUME ONE <span>/ ORIGIN</span>
+                          </p>
+                          <p class="booklet-origin-overlay__fact">
+                            <em>Legend of Juan Yun</em> begins with the Eastern Han bronze
+                            galloping horse unearthed in Wuwei, Gansu, reimagining a
+                            two-thousand-year-old artifact as a story of courage,
+                            loyalty, and the meeting of civilizations.
+                          </p>
+                          <p class="booklet-origin-overlay__question">
+                            History left behind a single gesture.<br />
+                            We want to know:<br />
+                            <strong>What made it take this leap?</strong>
+                          </p>
+                        </div>
+                      </section>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="booklet-content-slider"
+                  id="bookletContentSlider"
+                  data-visible="false"
+                  data-overflow="false"
+                  aria-hidden="true"
+                >
+                  <img
+                    class="booklet-content-slider__bar"
+                    id="bookletContentSliderBar"
+                    src="./Assets/ConceptArt/HomeIcons/SliderControls/JuanYunSliderBar-Vertical-64x512.webp"
+                    alt=""
+                    draggable="false"
+                  />
+                  <button
+                    class="booklet-content-slider__thumb"
+                    id="bookletContentSliderThumb"
+                    type="button"
+                    tabindex="-1"
+                    role="slider"
+                    aria-orientation="vertical"
+                    aria-label="滚动当前内容"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    aria-valuenow="0"
+                  >
+                    <span
+                      class="booklet-content-slider__thumb-hit-area"
+                      aria-hidden="true"
+                    ></span>
+                    <img
+                      src="./Assets/ConceptArt/HomeIcons/SliderControls/JuanYunSliderThumb-128.webp"
+                      alt=""
+                      draggable="false"
+                    />
+                  </button>
+                </div>
+                <div
+                  class="booklet-title-layer"
+                  id="bookletTitleLayer"
+                  data-language="zh"
+                  aria-hidden="true"
+                >
+                  <canvas
+                    class="booklet-title-ink"
+                    id="bookletTitleInkCanvas"
+                    aria-hidden="true"
+                  ></canvas>
+                  <img
+                    class="booklet-title booklet-title-source booklet-title--zh"
+                    src="./Assets/Texture/optimized/JuanYunTitleC.webp"
+                    alt=""
+                    draggable="false"
+                  />
+                  <img
+                    class="booklet-title booklet-title-source booklet-title--en"
+                    data-src="./Assets/Texture/optimized/JuanYunTitleE.webp"
+                    alt=""
+                    draggable="false"
+                  />
+                </div>
+                <div
+                  class="booklet-origin-copy"
+                  id="bookletOriginCopy"
+                  data-language="zh"
+                  aria-hidden="true"
+                >
+                  <p class="booklet-origin-copy__kicker">
+                    <span class="booklet-origin-copy__language--zh">卷首</span>
+                    <span class="booklet-origin-copy__language--en">ORIGIN</span>
+                  </p>
+                  <p class="booklet-origin-copy__headline booklet-origin-copy__language--zh">
+                    一匹马，带着一条路重新被看见。
+                  </p>
+                  <p class="booklet-origin-copy__headline booklet-origin-copy__language--en">
+                    A horse carries a road back into view.
+                  </p>
+                  <p class="booklet-origin-copy__body booklet-origin-copy__language--zh">
+                    一件文物，重新拥有生命；<br />一条古路，重新连接今天。
+                  </p>
+                  <p class="booklet-origin-copy__body booklet-origin-copy__language--en">
+                    An artifact finds life again;<br />a road reconnects with today.
+                  </p>
+                </div>
+                <button
+                  class="booklet-origin-button"
+                  id="bookletOriginButton"
+                  type="button"
+                  aria-label="显示卷首墨迹层"
+                  aria-controls="bookletOriginOverlay"
+                  aria-expanded="false"
+                  disabled
+                >
+                  <img
+                    src="./Assets/Texture/optimized/icon1.webp"
+                    alt=""
+                    draggable="false"
+                  />
+                </button>
+              </div>
+            </div>
+            <div class="roll-end-3d" id="rollEnd" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+      <nav class="section-navigation" id="sectionNavigation" aria-label="简册场景分节导航">
+        <button
+          class="section-nav-button section-nav-button--left"
+          id="sectionPrevButton"
+          type="button"
+          aria-label="向左移动一节"
+        >
+          <img
+            src="./Assets/Texture/optimized/JuanYunNavButton-Left-128.webp"
+            alt=""
+            draggable="false"
+          />
+        </button>
+        <button
+          class="section-nav-button section-nav-button--right"
+          id="sectionNextButton"
+          type="button"
+          aria-label="向右移动一节"
+        >
+          <img
+            src="./Assets/Texture/optimized/JuanYunNavButton-Right-128.webp"
+            alt=""
+            draggable="false"
+          />
+        </button>
+      </nav>
+    </main>
+
+    <div class="roll-progress-control">
+      <input
+        class="roll-progress-bar"
+        id="rollProgressBar"
+        type="range"
+        min="0"
+        max="1"
+        step="0.001"
+        value="0"
+        aria-label="卷端展开进度"
+      />
+    </div>
+
+    <script type="module" src="./src/app.js?v=20260915-10"></script>
+  </body>
+</html>

@@ -1,0 +1,117 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-width: 320px;
+  min-height: 100%;
+  margin: 0;
+  background: var(--lacquer);
+}
+
+body {
+  font-family: var(--font-brand);
+  overflow: hidden;
+  background: var(--lacquer);
+}
+
+body.is-loading .booklet-stage {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.asset-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  pointer-events: auto;
+  color: #e8c485;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(119, 57, 27, 0.28), transparent 32%),
+    linear-gradient(180deg, #1a0b08 0%, #0e0705 100%);
+  opacity: 1;
+  transition:
+    opacity 420ms ease,
+    visibility 0s linear 420ms;
+}
+
+.asset-loader.is-complete {
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.asset-loader__inner {
+  display: grid;
+  justify-items: center;
+  width: min(260px, 68vw);
+  gap: 12px;
+}
+
+.asset-loader__title {
+  color: #d9ad61;
+  font-size: clamp(
+    calc(20px * var(--font-scale)),
+    calc(3vw * var(--font-scale)),
+    calc(30px * var(--font-scale))
+  );
+  letter-spacing: 0.22em;
+  text-indent: 0.22em;
+}
+
+.asset-loader__label,
+.asset-loader__percent {
+  color: rgba(235, 202, 143, 0.72);
+  font-size: calc(12px * var(--font-scale));
+  letter-spacing: 0.12em;
+}
+
+.asset-loader__track {
+  width: 100%;
+  height: 3px;
+  overflow: hidden;
+  border: 1px solid rgba(217, 173, 97, 0.28);
+  background: rgba(31, 14, 9, 0.72);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.asset-loader__fill {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #9b6934, #e0b66c);
+  transition: width 180ms ease;
+}
+
+.asset-loader__percent {
+  font-variant-numeric: tabular-nums;
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+  content: "";
+  opacity: 0.08;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
+  mix-blend-mode: normal;
+}
+
+.booklet-stage {
+  position: relative;
+  width: 100vw;
+  height: 100svh;
+  background-color: #120a08;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.booklet-stage.is-auto-opening .section-navigation {
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+}
