@@ -120,6 +120,46 @@ export const CULTURE_CONTENT_PAGES = Object.freeze([
     },
   },
   {
+    id: "core-visual-durian-horse-ice-cream",
+    kind: "visual",
+    section: "00 / 核心视觉",
+    image: `${CULTURE_VISUAL_ROOT}culture-07-durian-horse.webp`,
+    alt: {
+      zh: "铜奔马榴莲冰激凌文创概念图",
+      en: "Bronze Galloping Horse durian ice-cream cultural-product concept art",
+    },
+    zh: {
+      title: "铜奔马榴莲冰激凌",
+      lead: "让铜奔马从博物馆走进一口甜味记忆。",
+      paragraphs: ["以铜奔马造型与榴莲风味打造的联名冰激凌及包装。"],
+    },
+    en: {
+      title: "Bronze Galloping Horse durian ice cream",
+      lead: "Bring the Bronze Horse from the museum into a sweet memory.",
+      paragraphs: ["A co-branded ice cream and package inspired by the Bronze Horse and durian flavor."],
+    },
+  },
+  {
+    id: "core-visual-asiya-mangosteen-ice-cream",
+    kind: "visual",
+    section: "00 / 核心视觉",
+    image: `${CULTURE_VISUAL_ROOT}culture-08-mangosteen-asiya.webp`,
+    alt: {
+      zh: "阿西娅公主山竹冰激凌文创概念图",
+      en: "Princess Asiya mangosteen ice-cream cultural-product concept art",
+    },
+    zh: {
+      title: "阿西娅公主山竹冰激凌",
+      lead: "把丝路人物变成可以分享的味觉故事。",
+      paragraphs: ["以阿西娅公主形象、山竹风味与丝路包装构成的联名冰激凌。"],
+    },
+    en: {
+      title: "Princess Asiya mangosteen ice cream",
+      lead: "Turn a Silk Road character into a story to share.",
+      paragraphs: ["A co-branded ice cream pairing Princess Asiya, mangosteen flavor, and Silk Road packaging."],
+    },
+  },
+  {
     "id": "hotel-corridor",
     "kind": "visual",
     "section": "卷云系列主题酒店",
