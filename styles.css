@@ -1,7 +1,7 @@
 /* 样式入口：按布局、场景、内容和交互组件拆分。 */
 @import url("./styles/tokens.css?v=20260912-2");
 @import url("./styles/base.css?v=20260906-1");
-@import url("./styles/orientation.css?v=20260912-1");
+@import url("./styles/orientation.css?v=20260919-1");
 @import url("./styles/navigation.css");
 @import url("./styles/scene.css?v=20260906-3");
 @import url("./styles/content.css?v=20260915-6");
