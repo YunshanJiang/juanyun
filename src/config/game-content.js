@@ -37,7 +37,7 @@ export const GAME_CONTENT_PAGES = Object.freeze([
     kind: "visual",
     section: "01 / 进入马的世界",
     image: `${GAME_VISUAL_ROOT}game-18-playable-world-entry.webp`,
-    visualHref: "./Assets/interactive/juan-yun-playable-demo-6.html",
+    visualHref: "./play/",
     visualLinkLabel: {
       zh: "打开卷云传可玩演示",
       en: "Open the Legend of Juan Yun playable demo",
@@ -48,41 +48,41 @@ export const GAME_CONTENT_PAGES = Object.freeze([
     },
     zh: {
       title: "进入马的世界",
-      lead: "可玩演示入口｜点击画面打开网页",
+      lead: "三章 Unity 可玩 Demo｜2026.10.26 R4",
       paragraphs: [
         "这张画面是《卷云传》游戏体验的入口：从真实的马与丝路地貌出发，穿过马家窑纹样构成的边界，进入只有马能够抵达的世界。",
-        "点击画面中央的跳转按钮，在独立网页中体验奔跑、进入踏界，以及马的世界三条原则。原有的完整设定与嵌入式演示保留在下一页。",
+        "点击画面打开新版三章试玩：沙漠探索、河西骑战、风雪冒险。无需注册，使用电脑键盘与鼠标；首次加载约 87 MB，默认静音。原有概念演示仍保留。",
       ],
       items: [
         {
           value: "入口",
           title: "打开可玩演示",
-          text: "跳转到独立网页，体验从真实地貌进入马的世界。",
+          text: "跟随当前目标，探索记忆、解锁技能并进入踏界。",
         },
         {
           value: "保留",
-          title: "完整设定仍在下一页",
-          text: "原有的可玩演示页与“马的世界三条原则”完整保留。",
+          title: "概念演示仍可查看",
+          text: "试玩入口底部保留原视频交互原型；原有世界设定不变。",
         },
       ],
     },
     en: {
       title: "Enter the horse world",
-      lead: "Playable demo entry｜Click the image to open the webpage",
+      lead: "Three-chapter Unity demo｜2026.10.26 R4",
       paragraphs: [
         "This image is the entry point to the Legend of Juan Yun game experience: begin with a real horse and Silk Road terrain, cross a boundary made from Majiayao motifs, and enter a world only horses can reach.",
-        "Click the button at the centre of the image to open the standalone webpage and experience running, entering Ta Jie, and the three principles of the horse world. The original full setting and embedded demo remain on the next page.",
+        "Open the updated three-chapter demo: desert exploration, frontier combat and a snowbound adventure. No account required; use a desktop keyboard and mouse. Initial download is about 87 MB and audio starts muted. The original concept prototype is preserved.",
       ],
       items: [
         {
           value: "ENTRY",
           title: "Open the playable demo",
-          text: "Jump to the standalone webpage and travel from the physical landscape into the horse world.",
+          text: "Follow clear objectives, discover memories, unlock abilities and enter Ta Jie.",
         },
         {
           value: "KEPT",
-          title: "The full setting remains next",
-          text: "The original playable-demo page and the three principles of the horse world remain intact.",
+          title: "The concept prototype remains available",
+          text: "Find the original interactive video at the bottom of the demo entry page. The existing world setting is preserved.",
         },
       ],
     },

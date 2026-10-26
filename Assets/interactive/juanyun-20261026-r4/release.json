@@ -1,0 +1,23 @@
+{
+  "release": "2026.10.26-r4",
+  "status": "development-playtest",
+  "engine": "Unity 6000.6.5f1",
+  "buildDate": "2026-10-26T09:59:47+08:00",
+  "buildBytes": 87254748,
+  "buildErrors": 0,
+  "buildWarnings": 0,
+  "chapters": ["JuanYun_Desert", "JuanYun_Grassland", "JuanYun_Snow"],
+  "controls": "desktop keyboard and mouse",
+  "sha256": {
+    "Build/WebGL.data.unityweb": "4e70eb9ec6e73b2b93a2b0525abf90b6ce2f9f5d0fae768094406513187132db",
+    "Build/WebGL.framework.js.unityweb": "64f3560b4690b3f7fe15131445d3087613b2f475ee4780c4768e12e53181dd7a",
+    "Build/WebGL.loader.js": "62ea0223830027b5429b0027e3eb88cab5eb05a71283381737c97a23505ff41b",
+    "Build/WebGL.wasm.unityweb": "600d3b9a8503aa3ad40081255de1e7f83a0d7da86518789c018f2af15477b470"
+  },
+  "knownLimitations": [
+    "Character motion and swallow art are provisional; human Mandarin voice replacement is pending.",
+    "Embedded browsers may reject pointer lock. Use a standalone desktop browser.",
+    "Optional FSR postprocessing shader compatibility warning observed in Chromium.",
+    "Mobile gameplay, broad-device performance and independent human playtests are not validated."
+  ]
+}

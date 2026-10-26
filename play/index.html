@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>卷云传 · 马魂 — Playable Demo</title>
+  <meta name="description" content="《卷云传》三章节可玩 Demo：沙漠探索、河西骑战与风雪冒险。桌面键盘鼠标体验，无需注册。">
+  <style>
+    :root{color-scheme:dark;--gold:#d5b879;--paper:#efe6d3;--muted:#b8b4aa;--line:#64553a}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% 0,#4b3926 0,transparent 55%),#151715;color:var(--paper);font:16px/1.7 system-ui,-apple-system,"PingFang SC",sans-serif}
+    main{max-width:1100px;margin:auto;padding:32px max(24px,env(safe-area-inset-right)) 50px max(24px,env(safe-area-inset-left))}nav{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:20px}a{color:var(--gold);text-underline-offset:5px}a:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:6px}
+    .eyebrow{letter-spacing:.2em;color:var(--gold);font-size:13px}h1{font:500 clamp(42px,7vw,76px)/1.2 "Songti SC",serif;letter-spacing:.1em;margin:22px 0 12px}h2{font-size:21px;font-weight:500;margin:0 0 8px}p{max-width:760px}.lead{font-size:clamp(19px,2.4vw,26px);margin-bottom:8px}.en,.note{color:var(--muted);font-size:14px}.hero{padding:48px 0 30px}.launch{display:inline-block;background:var(--gold);color:#181914;border:1px solid #f1dba5;padding:14px 32px;margin:20px 0 8px;text-decoration:none;font-weight:700;font-size:18px;border-radius:3px}.launch:hover{background:#ead09a}
+    .chapters{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:25px 0 35px}.chapter{padding:22px;border:1px solid var(--line);border-top:3px solid var(--gold);background:#22231eaa}.chapter:nth-child(2){border-top-color:#9aaa8a}.chapter:nth-child(3){border-top-color:#b5ccd7}.chapter p{margin:8px 0}.chapter .number{font-size:12px;letter-spacing:.2em;color:var(--muted)}
+    details{border-top:1px solid var(--line);padding:20px 0}summary{cursor:pointer;color:var(--gold);font-size:18px}dl{display:grid;grid-template-columns:160px 1fr;gap:9px 20px;margin:20px 0}dt{color:var(--paper)}dd{margin:0;color:var(--muted)}kbd{font:inherit;color:var(--paper)}footer{border-top:1px solid var(--line);padding-top:22px;font-size:13px;color:var(--muted)}.mobile-note{display:none}
+    @media(max-width:700px){main{padding-top:22px}.hero{padding-top:30px}.chapters{grid-template-columns:1fr;gap:12px}.chapter{padding:18px}dl{grid-template-columns:110px 1fr;font-size:14px}.mobile-note{display:block;color:var(--gold)}}
+  </style>
+</head>
+<body>
+<main>
+  <nav><a href="../">← 卷云传官网 / Official site</a><span class="eyebrow">PLAYTEST BUILD · 2026.10.26 · R4</span></nav>
+  <section class="hero" aria-labelledby="title">
+    <div class="eyebrow">LEGEND OF JUAN YUN · HORSE SOUL</div>
+    <h1 id="title">卷云传 · 马魂</h1>
+    <p class="lead">先找到前方的路，再发现三匹马的联系。</p>
+    <p class="en" lang="en">Find your way through the desert, charge across the frontier, and brave the snow. Discover what connects three horses across time.</p>
+    <a class="launch" href="../Assets/interactive/juanyun-20261026-r4/index.html?mute=1">进入试玩 / Play demo →</a>
+    <p class="note">无需注册 · 电脑键盘＋鼠标 · 首次加载约 87 MB · 默认静音<br><span lang="en">No account needed. Desktop keyboard and mouse required. Initial download ≈87 MB. Starts muted.</span></p>
+    <p class="mobile-note">手机可浏览介绍；请把此链接发送到电脑上游玩。 / Open this link on a computer to play.</p>
+  </section>
+  <section class="chapters" aria-label="三个章节 / Three chapters">
+    <article class="chapter"><span class="number">01 · SUMMER</span><h2>卷云 × 张骞</h2><p>穿越沙漠，寻找记忆碎片。</p><p class="en" lang="en">Explore the desert and recover lost memories.</p></article>
+    <article class="chapter"><span class="number">02 · WINTER TO SPRING</span><h2>卷风 × 霍去病</h2><p>突破敌军，感受骑战冲锋。</p><p class="en" lang="en">Break through enemy lines with mounted combat.</p></article>
+    <article class="chapter"><span class="number">03 · WINTER</span><h2>卷雪 × 王昭君</h2><p>穿越风雪，迎战狼王。</p><p class="en" lang="en">Ride into the snow and face the wolf king.</p></article>
+  </section>
+  <details open><summary>开始前只需要知道 / Quick start</summary>
+    <p>进入后选择章节，跟随右上角的当前目标。技能会随记忆解锁，不需要先读懂全部设定。</p>
+    <p class="en" lang="en">Choose a chapter and follow the objective at the top right. Memories unlock abilities as you play; no lore reading is required.</p>
+    <dl><dt><kbd>W A S D</kbd> · <kbd>Shift</kbd></dt><dd>移动、奔跑 / Move, gallop</dd><dt>鼠标左键 · <kbd>F</kbd></dt><dd>攻击、冲锋 / Attack, charge</dd><dt><kbd>E</kbd> · <kbd>Q</kbd></dt><dd>踏界、已解锁技能 / Enter the realm, use an unlocked skill</dd><dt><kbd>G</kbd> · <kbd>V</kbd></dt><dd>燕子侦察、切换视角 / Scout, switch view</dd><dt><kbd>J</kbd> · <kbd>I</kbd></dt><dd>记忆、马具 / Memories, equipment</dd><dt><kbd>Esc</kbd></dt><dd>暂停与帮助；可调整声音 / Pause, controls and audio</dd></dl>
+    <p class="note">点击游戏画面启用鼠标视角。若内嵌浏览器无法锁定鼠标，请复制链接到独立桌面浏览器。浏览器会在本机保存进度；清除站点数据会清除该进度。</p>
+    <p class="note" lang="en">Click the game to capture the mouse. If an embedded browser cannot capture it, open the link in a standalone desktop browser. Progress is stored locally; clearing site data clears that progress.</p>
+  </details>
+  <details><summary>本版更新与测试范围 / Build notes</summary>
+    <p>调整任务引导、敌人攻击节奏、踏界入场、记忆技能与隐藏路线、图示商店、装备界面和三章季节表现。通关后可继续拾取与探索，再按 Enter 离开。</p>
+    <p class="en" lang="en">Updated objectives, enemy attacks, realm entrance, memory abilities, hidden routes, illustrated trading, equipment UI and seasonal visuals. After victory, keep collecting and exploring; press Enter when ready to leave.</p>
+    <p class="note">开发中试玩版，并非最终品质。角色动作、燕子模型与配音仍待完善；尚未完成独立玩家测试及全设备性能验收。</p>
+    <p class="note" lang="en">Work-in-progress playtest, not final quality. Character animation, the swallow model and voice-over still need refinement. Independent player testing and broad device performance validation are pending.</p>
+  </details>
+  <footer>保留原概念演示：<a href="../Assets/interactive/juan-yun-playable-demo-6.html">视频交互原型 / Original concept prototype</a><br>2026.10.26 R4 · 三章开发试玩 / Three-chapter development demo</footer>
+</main>
+</body>
+</html>

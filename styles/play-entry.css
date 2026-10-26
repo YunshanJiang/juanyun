@@ -1,0 +1,20 @@
+.play-demo-entry {
+  position: fixed;
+  top: max(18px, env(safe-area-inset-top));
+  left: max(18px, env(safe-area-inset-left));
+  z-index: 101;
+  padding: 10px 18px;
+  border: 1px solid #b69760;
+  border-radius: 3px;
+  background: #211b13f2;
+  color: #efdbb1;
+  font: 600 15px/1.5 system-ui, -apple-system, "PingFang SC", sans-serif;
+  text-decoration: none;
+  pointer-events: auto;
+}
+.play-demo-entry span { margin-left: 12px; }
+.play-demo-entry:hover { background: #403324; }
+.play-demo-entry:focus-visible { outline: 3px solid #efdbb1; outline-offset: 4px; }
+@media (max-width: 600px) {
+  .play-demo-entry { padding: 9px 13px; font-size: 14px; }
+}
